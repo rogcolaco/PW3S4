@@ -9,7 +9,7 @@
 </head>
 <body>
 	<h1>${user.login} Informe os Dados do Novo Contato | <a href=login>Voltar</a></h1>
-	<form method=post action=registerUser>
+	<form method=post action=registerNewContact>
 		<p> Nome: <input type=text name=name /> </p> 
 		<p> Endereço: <input type=text name=adress /> </p>  
 		<p> Telefone: <input type=text name=phone /> </p> 
