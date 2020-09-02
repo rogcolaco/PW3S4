@@ -8,7 +8,7 @@
 <title>Cadastrar novo Contato</title>
 </head>
 <body>
-	<h1>${user.login} Informe os Dados do Novo Contato</h1>
+	<h1>${user.login} Informe os Dados do Novo Contato | <a href=login>Voltar</a></h1>
 	<form method=post action=registerUser>
 		<p> Nome: <input type=text name=name /> </p> 
 		<p> Endereço: <input type=text name=adress /> </p>  
