@@ -47,4 +47,22 @@ private ContactRepository repository;
 		return "myContacts";
 		
 	}
+	
+	/*@Transactional
+	@RequestMapping("removeContact")
+	public String removeContact(Contact contact) {
+		System.out.println(contact.getId());
+		System.out.println(contact.getName());
+		//Contact c = repository.find(contact.getId());
+		//repository.removeContact(c);
+		return "myContacts";
+	}*/
+	
+	@Transactional
+	@RequestMapping(value="removeContact", method = RequestMethod.GET)
+	public String removeContact(Contact contact) {
+		Contact c = repository.find(contact.getId());
+		repository.removeContact(c);
+		return "redirect:myContacts";
+	}
 }

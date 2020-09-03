@@ -25,7 +25,7 @@
 		<td>${contacts.phone}</td>
 		<td>${contacts.email}</td>
 		<td><a href=loja?acao=AlterarProduto&id=${produto.id}>Alterar</a></td>
-		<td><a href=loja?acao=RemoverProduto&id=${produto.id}>Remover</a></td>
+		<td><a href=removeContact?id=${contacts.id}>Remover</a></td>
 	</tr>
 </c:forEach>
 

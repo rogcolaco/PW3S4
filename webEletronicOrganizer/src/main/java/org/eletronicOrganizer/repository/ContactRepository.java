@@ -19,6 +19,14 @@ public class ContactRepository {
 	public void addContact(Contact contact) {
 		manager.persist(contact);
 	}
+	
+	public Contact find(int id) {
+		return manager.find(Contact.class, id);
+	}
+	
+	public void removeContact(Contact contact) {
+		manager.remove(contact);
+	}
 
 	
 	public List<Contact> readAll(String login){
@@ -31,4 +39,5 @@ public class ContactRepository {
 		}
 		return contacts;
 	}
+	
 }
