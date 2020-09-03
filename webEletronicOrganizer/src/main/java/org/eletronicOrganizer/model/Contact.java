@@ -14,6 +14,8 @@ public class Contact {
 	private String adress;
 	private String phone;
 	private String email;
+	private String id_user;
+	
 	public int getId() {
 		return id;
 	}
@@ -44,6 +46,11 @@ public class Contact {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	
-	
+	public String getId_user() {
+		return id_user;
+	}
+	public void setId_user(String id_user) {
+		this.id_user = id_user;
+	}
+		
 }
