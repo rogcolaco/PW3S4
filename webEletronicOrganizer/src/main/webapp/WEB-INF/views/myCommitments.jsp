@@ -24,8 +24,8 @@
 				<td>${commitments.date}</td>
 				<td>${commitments.contact}</td>
 				<td>${commitments.description}</td>
-				<td><a href=selectContact?id=${contacts.id}>Alterar</a></td>
-				<td><a href=removeContact?id=${contacts.id}>Remover</a></td>
+				<td><a href=selectContact?id=${commitments.id}>Alterar</a></td>
+				<td><a href=removeCommitment?id=${commitments.id}>Remover</a></td>
 			</tr>
 		</c:forEach>
 
