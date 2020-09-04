@@ -35,7 +35,6 @@ public class NewCommitmentController {
 		User user = new User();
 		user = (User) session.getAttribute("user");
 		commitment.setId_user(user.getLogin());
-		//System.out.println(commitment.getDate());
 		repository.addCommitment(commitment);
 		return "mainMenu";
 	}
