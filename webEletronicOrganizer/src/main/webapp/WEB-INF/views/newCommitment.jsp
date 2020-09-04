@@ -7,7 +7,7 @@
 <title>Cadastrar novo Compromisso</title>
 </head>
 <body>
-	<p> Bem vindo: ${user.login} | <a href=mainMenu>Voltar | </a><a href=logout> Sair</a> <p>
+	<p> Bem vindo: ${user.login} | <a href=mainMenu>Voltar</a>  |  <a href=logout>Sair</a> <p>
 	<h1>Informe os dados do Novo Compromisso</h1>
 	<form method=post action=registerNewCommitment>
 		<p> Local: <input type=text name=local /> </p> 

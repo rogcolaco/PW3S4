@@ -8,7 +8,7 @@
 <title>Meus Compromissos</title>
 </head>
 <body>
-	<p>Bem vindo: ${user.login} | <a href=mainMenu>Voltar | </a><a href=logout>Sair</a><p>
+	<p>Bem vindo: ${user.login} | <a href=mainMenu>Voltar</a>  |  <a href=logout>Sair</a> <p>
 	<h1>Meus Compromissos</h1>
 	<table border=1>
 		<tr>

@@ -9,7 +9,7 @@
 </head>
 <body>
 	<p>
-		Bem vindo: ${user.login} | <a href=mainMenu>Voltar | </a> <a href=logout> Sair</a>
+		Bem vindo: ${user.login} | <a href=mainMenu>Voltar</a>  |  <a href=logout>Sair</a>
 	<p>
 
 	<c var="contacts" items="${contacts}">
