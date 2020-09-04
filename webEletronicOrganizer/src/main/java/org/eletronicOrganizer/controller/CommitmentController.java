@@ -54,7 +54,7 @@ public class CommitmentController {
 	public String removeCommitment(Commitment commitment) {
 		Commitment c = repository.find(commitment.getId());
 		repository.removeCommitment(c);
-		return "redirect:myContacts";
+		return "redirect:myCommitments";
 	}
 
 }
