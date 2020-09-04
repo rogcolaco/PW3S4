@@ -43,10 +43,6 @@ private ContactRepository repository;
 		User user = new User();
 		user = (User) session.getAttribute("user");
 		contact.setId_user(user.getLogin());
-		/*System.out.println(contact.getName());
-		System.out.println(contact.getPhone());
-		System.out.println(contact.getId_user());
-		System.out.println(contact.getId());*/
 		repository.update(contact);
 		return "redirect:myContacts";
 	}

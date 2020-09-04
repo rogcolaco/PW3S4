@@ -15,10 +15,10 @@
 	<c var="commitments" items="${commitments}">
 		<form method=post action=updateCommitment>
 			<p>	ID: <input type=text name=id value="${commitments.id}" readonly/>	</p>
-			<p>	Local: <input type=text name=name value="${commitments.local}" />	</p>
-			<p>	Data: <input type=text name=adress value="${commitments.date}" /> </p>
-			<p> Contato: <input type=text name=phone value="${commitments.contact}" /> </p>
-			<p>	Descrição: <input type=text name=email value="${commitments.description}" />	</p>
+			<p>	Local: <input type=text name=local value="${commitments.local}" />	</p>
+			<p>	Data: <input type=date name=date value="${commitments.date}" /> </p>
+			<p> Contato: <input type=text name=contact value="${commitments.contact}" /> </p>
+			<p>	Descrição: <input type=text name=description value="${commitments.description}" />	</p>
 			<p>	<input type=submit value="Alterar Compromisso">	</p>
 		</form>
 	</c>

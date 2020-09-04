@@ -21,6 +21,10 @@ public class CommitmentRepository {
 		manager.persist(commitment);
 	}
 	
+	public void update(Commitment commitment) {
+		manager.merge(commitment);
+	}
+	
 	public List<Commitment> readAll(String login){
 		List<Commitment> commitments = new ArrayList();
 		TypedQuery<Commitment> query = manager.createQuery("select c from Commitment c", Commitment.class);
