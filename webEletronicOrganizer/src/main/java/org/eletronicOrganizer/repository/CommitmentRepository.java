@@ -31,5 +31,13 @@ public class CommitmentRepository {
 		}
 		return commitments;
 	}
+	
+	public Commitment find(int id) {
+		return manager.find(Commitment.class, id);
+	}
+	
+	public void removeCommitment(Commitment commitment) {
+		manager.remove(commitment);
+	}
 
 }

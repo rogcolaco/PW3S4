@@ -7,6 +7,7 @@ import javax.servlet.http.HttpSession;
 import javax.transaction.Transactional;
 
 import org.eletronicOrganizer.model.Commitment;
+import org.eletronicOrganizer.model.Contact;
 import org.eletronicOrganizer.model.User;
 import org.eletronicOrganizer.repository.CommitmentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,6 +49,12 @@ public class CommitmentController {
 		return "myCommitments";
 	}
 	
-	/**/
+	@Transactional
+	@RequestMapping(value="removeCommitment", method = RequestMethod.GET)
+	public String removeCommitment(Commitment commitment) {
+		Commitment c = repository.find(commitment.getId());
+		repository.removeCommitment(c);
+		return "redirect:myContacts";
+	}
 
 }
