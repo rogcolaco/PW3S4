@@ -34,9 +34,21 @@ private ContactRepository repository;
 		user = (User) session.getAttribute("user");
 		contact.setId_user(user.getLogin());
 		repository.addContact(contact);
-		//System.out.println(user.getLogin());
-		//scheduleRepository.addUserContact(user, contact);
 		return "mainMenu";
+	}
+	
+	@Transactional
+	@RequestMapping(value = "updateContact", method=RequestMethod.POST)
+	public String updateContact(HttpSession session, Contact contact) {
+		User user = new User();
+		user = (User) session.getAttribute("user");
+		contact.setId_user(user.getLogin());
+		/*System.out.println(contact.getName());
+		System.out.println(contact.getPhone());
+		System.out.println(contact.getId_user());
+		System.out.println(contact.getId());*/
+		repository.update(contact);
+		return "redirect:myContacts";
 	}
 	
 	@RequestMapping("myContacts")
@@ -47,16 +59,7 @@ private ContactRepository repository;
 		return "myContacts";
 		
 	}
-	
-	/*@Transactional
-	@RequestMapping("removeContact")
-	public String removeContact(Contact contact) {
-		System.out.println(contact.getId());
-		System.out.println(contact.getName());
-		//Contact c = repository.find(contact.getId());
-		//repository.removeContact(c);
-		return "myContacts";
-	}*/
+
 	
 	@Transactional
 	@RequestMapping(value="removeContact", method = RequestMethod.GET)
@@ -64,5 +67,13 @@ private ContactRepository repository;
 		Contact c = repository.find(contact.getId());
 		repository.removeContact(c);
 		return "redirect:myContacts";
+	}
+	
+	@Transactional
+	@RequestMapping(value="selectContact")
+	public String selectContact(Model model, Contact contact) {
+		Contact c = repository.find(contact.getId());
+		model.addAttribute("contacts", repository.find(contact.getId()));
+		return "selectContact";
 	}
 }

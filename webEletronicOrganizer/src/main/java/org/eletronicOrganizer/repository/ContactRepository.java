@@ -20,6 +20,10 @@ public class ContactRepository {
 		manager.persist(contact);
 	}
 	
+	public void update(Contact contact) {
+		manager.merge(contact);
+	}
+	
 	public Contact find(int id) {
 		return manager.find(Contact.class, id);
 	}
@@ -28,7 +32,6 @@ public class ContactRepository {
 		manager.remove(contact);
 	}
 
-	
 	public List<Contact> readAll(String login){
 		List<Contact> contacts = new ArrayList();
 		TypedQuery<Contact> query = manager.createQuery("select c from Contact c", Contact.class);
