@@ -11,16 +11,17 @@ import org.eletronicOrganizer.model.User;
 import org.eletronicOrganizer.repository.CommitmentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-public class NewCommitmentController {
+public class CommitmentController {
 	
 	private CommitmentRepository repository;
 	
 	@Autowired
-	public NewCommitmentController (CommitmentRepository repository) {
+	public CommitmentController (CommitmentRepository repository) {
 		this.repository = repository;
 	}
 	
@@ -35,9 +36,16 @@ public class NewCommitmentController {
 		User user = new User();
 		user = (User) session.getAttribute("user");
 		commitment.setId_user(user.getLogin());
-		//System.out.println(commitment.getDate());
 		repository.addCommitment(commitment);
 		return "mainMenu";
+	}
+	
+	@RequestMapping("myCommitments")
+	public String readAll(Model model, HttpSession session) {
+		User user = new User();
+		user = (User) session.getAttribute("user");
+		model.addAttribute("commitments", repository.readAll(user.getLogin()));
+		return "myCommitments";
 	}
 
 }
