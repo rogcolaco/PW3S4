@@ -47,5 +47,7 @@ public class CommitmentController {
 		model.addAttribute("commitments", repository.readAll(user.getLogin()));
 		return "myCommitments";
 	}
+	
+	/**/
 
 }
