@@ -9,7 +9,7 @@
 </head>
 <body>
 	<p>Bem vindo: ${user.login} | <a href=mainMenu>Voltar</a>  |  <a href=logout>Sair</a> <p>
-	<h1>Meus Contatos</h1>
+	<h1>Contatos Filtrados</h1>
 	<table border=1>
 		<tr>
 			<th>Nome</th>
@@ -30,7 +30,7 @@
 		</c:forEach>
 
 		<tr>
-			<td colspan=6><a href=searchContact>Buscar Contato</a></td>
+			<td colspan=6><a href=myContacts>Mostrar Todos</a></td>
 		</tr>
 		
 		<tr>

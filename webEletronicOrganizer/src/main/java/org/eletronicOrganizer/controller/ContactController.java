@@ -72,4 +72,17 @@ private ContactRepository repository;
 		model.addAttribute("contacts", repository.find(contact.getId()));
 		return "selectContact";
 	}
+	
+	@RequestMapping("searchContact")
+	public String inputSearchContact() {
+		return "inputSearchContact";
+	}
+	
+	@RequestMapping("myContactsFiltred")
+	public String searchContact(Model model, HttpSession session, String name) {
+		User user = new User();
+		user = (User) session.getAttribute("user");
+		model.addAttribute("contacts", repository.searchContact(user.getLogin(), name));
+		return "myContactsFiltred";
+	}
 }

@@ -28,6 +28,17 @@ public class ContactRepository {
 		return manager.find(Contact.class, id);
 	}
 	
+	public List<Contact> searchContact(String login, String name) {
+		List<Contact> contacts = new ArrayList();
+		TypedQuery<Contact> query = manager.createQuery("select c from Contact c", Contact.class);
+		for (Contact c : query.getResultList()) {
+			if (c.getId_user().equals(login) && c.getName().trim().contains(name)) {
+				contacts.add(c);
+			}
+		}
+		return contacts;
+	}
+	
 	public void removeContact(Contact contact) {
 		manager.remove(contact);
 	}
@@ -36,7 +47,7 @@ public class ContactRepository {
 		List<Contact> contacts = new ArrayList();
 		TypedQuery<Contact> query = manager.createQuery("select c from Contact c", Contact.class);
 		for (Contact c : query.getResultList()) {
-			if (c.getId_user().contentEquals(login)) {
+			if (c.getId_user().equals(login)) {
 				contacts.add(c);
 			}
 		}
