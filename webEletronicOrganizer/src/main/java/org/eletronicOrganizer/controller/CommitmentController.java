@@ -41,6 +41,16 @@ public class CommitmentController {
 		return "mainMenu";
 	}
 	
+	@Transactional
+	@RequestMapping(value = "updateCommitment", method=RequestMethod.POST)
+	public String updateCommitment(HttpSession session, Commitment commitment) {
+		User user = new User();
+		user = (User) session.getAttribute("user");
+		commitment.setId_user(user.getLogin());
+		repository.update(commitment);
+		return "redirect:myCommitments";
+	}
+	
 	@RequestMapping("myCommitments")
 	public String readAll(Model model, HttpSession session) {
 		User user = new User();
@@ -55,6 +65,14 @@ public class CommitmentController {
 		Commitment c = repository.find(commitment.getId());
 		repository.removeCommitment(c);
 		return "redirect:myCommitments";
+	}
+	
+	@Transactional
+	@RequestMapping(value="selectCommitment")
+	public String selectCommitment(Model model, Commitment commitment) {
+		Commitment c = repository.find(commitment.getId());
+		model.addAttribute("commitments", repository.find(commitment.getId()));
+		return "selectCommitment";
 	}
 
 }
